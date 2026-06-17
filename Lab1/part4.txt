@@ -1,0 +1,7 @@
+a. There are 2 functions defined in this program, the names are 1.adventure, 2.create_player
+b. Line 71
+c. Line 20
+d. adventure
+e. Lets the user type an input into the terminal
+f. A unique specialty I do not recognize! Intriguing...
+g. 

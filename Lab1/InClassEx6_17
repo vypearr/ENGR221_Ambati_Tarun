@@ -1,0 +1,11 @@
+def num_as(str = "Data structures and algorithms"):
+    
+    for char in "Data structures and algorithms":
+        if char in "a":
+            return int(char) 
+        print(int)
+        
+        
+    else:
+        print("No 'a' found in the string.")
+        return 0
