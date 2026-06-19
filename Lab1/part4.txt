@@ -4,4 +4,5 @@ c. Line 20
 d. adventure
 e. Lets the user type an input into the terminal
 f. A unique specialty I do not recognize! Intriguing...
-g. 
+g. They act as placeholders for the formatted variables
+h. Line 53, return 0, changing this line can stop the infinite loop. Because win == 0 in the while loop will not be satisfied anymore
