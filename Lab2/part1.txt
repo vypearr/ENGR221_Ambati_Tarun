@@ -1,0 +1,5 @@
+1. import, Object call, Pref = Preferences(...), 
+2. array 
+3. integers
+4. row and column indexs
+5. call one of the cell. methods

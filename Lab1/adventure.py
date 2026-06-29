@@ -1,7 +1,7 @@
 """
-Name: 
-Last updated: 
-Description: 
+Name: Tarun Ambati
+Last updated: 06/22/2026
+Description: A simple choose your own adventure game.
 """
 
 def adventure():
