@@ -1,0 +1,89 @@
+PART 1: 
+
+a. A new array is created by the create_new_array() method in sorting_algorithms.py. It uses a list comprehension and random.randint() to create a list of random values from 0 to Preferences.MAX_VAL.
+
+b. The new array is created whenever restart() is called. In controller.py, restart() is called when the user presses S for selection sort, I for insertion sort, B for bubble sort, or R to reset the current algorithm.
+
+c. yield pauses the sorting method and sends back the current pair of indices to highlight. The next time the algorithm is advanced, it continues from the same place instead of starting over. This lets the program show the sort one step at a time.
+
+d. selection_sort() is a generator that yields the next step of the algorithm. get_next_step() calls next() on the current sorting generator, receives the yielded indices, and stores them in outer_idx and inner_idx for the display.
+
+e. draw() takes array, outer_idx, and inner_idx. The array is updated directly by the sorting algorithm whenever swaps happen. outer_idx and inner_idx are updated in get_next_step() whenever the current sorting algorithm reaches a yield statement.
+
+
+PART 2:
+
+a. Selection sort works by selecting the smallest value from the unsorted part of the list and swapping it into the next correct position. It is called selection sort because each pass selects the next smallest item.
+
+b. Selection sort is O(n^2). You can tell from the code because it has a loop inside another loop. For each outer loop index i, the inner loop searches through the remaining unsorted items.
+
+c. Selection sort is O(1) extra space. It sorts the original list in place and only uses a few extra variables like i, j, and min_idx instead of creating a new list.
+
+
+PART 3: 
+
+a. Insertion sort builds a sorted section on the left side of the list. It takes the next item and inserts it into the correct spot by moving it left until it is in order. It is called insertion sort because each new item is inserted into the sorted portion.
+
+b. Insertion sort is O(n^2) in the worst case. The pseudocode has a for loop, and inside it there is a while loop that may move the current item across much of the list.
+
+c. Insertion sort is O(1) extra space because it sorts the same list in place and only uses a few variables such as i and j.
+
+
+PART 4: 
+
+a. Bubble sort compares neighboring items and swaps them if they are out of order. Larger values slowly move, or bubble, toward the end of the list after each pass.
+
+b. Bubble sort is O(n^2). You can tell because the pseudocode uses a nested loop: the outer loop makes passes through the list and the inner loop compares adjacent values.
+
+c. Bubble sort is O(1) extra space because it sorts in place and only uses loop variables and temporary swapping, not a new list.
+
+4.2
+
+i    j    A[i]    A[j]    print(A)
+N/A  N/A  N/A     N/A     [8, 1, 4, 2]
+0    0    8       8       [1, 8, 4, 2]
+0    1    1       8       [1, 4, 8, 2]
+0    2    1       8       [1, 4, 2, 8]
+1    0    4       1       [1, 4, 2, 8]
+1    1    4       4       [1, 2, 4, 8]
+2    0    4       1       [1, 2, 4, 8]
+
+4.3
+The -i works because after each full pass of bubble sort, the largest remaining item has already moved to the end of the list. That means the last i items are already sorted and do not need to be checked again. Skipping them gives the same sorted result with fewer comparisons.
+
+4.4
+
+a. Claude
+
+b. What prompt did you input?
+Write me a python bubble sort function that sorts a list, use the standard bubble sort nested loops way not inbuilt sort function
+
+c. def bubble_sort(A):
+    n = len(A)
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            if A[j] > A[j + 1]:
+                A[j], A[j + 1] = A[j + 1], A[j]
+
+d. Yes. It changes the original list directly. It does not create or return a new list.
+
+e. The tool version is very similar to the pseudocode because it uses the same nested loops, compares A[j] with A[j + 1], and swaps them if they are out of order. The main difference is that the tool version did not include print(A), and I had to add yield statements so it would work with the visualizer.
+
+f. I would add comments and yield statements for the GUI. I would also keep the -i optimization because it avoids checking values that are already sorted at the end.
+
+
+PART 5: 
+
+a. 100 items: about 0.0004966259002685547 seconds
+1,000 items: about 0.052049875259399414 seconds
+10,000 items: about 5.137599229812622 seconds
+
+b. 100 items: about 0.0006644725799560547 seconds
+1,000 items: about 0.09805750846862793 seconds
+10,000 items: about 7.699267387390137 seconds
+
+c. 100 items: about 0.0013709068298339844 seconds
+1,000 items: about 0.1072535514831543 seconds
+10,000 items: about 11.679657936096191 seconds
+
+d. All three algorithms are O(n^2), so their runtimes grow very quickly as the list gets larger. Even though they have the same Big O runtime, they can still take different amounts of actual time because they do different numbers of swaps, comparisons, and yield steps. Bubble sort is the slowest because it keeps comparing neighboring values many times.
