@@ -25,7 +25,7 @@ class Preferences:
     GAMEOVER_FONT_SIZE = 50
     GAMEOVER_FONT = pygame.font.SysFont(None, GAMEOVER_FONT_SIZE)
     GAMEOVER_FONT_COLOR = pygame.Color('red')
-    GAMEOVER_TEXT = "You were eaten by a seal!\nPress any key to exit."
+    GAMEOVER_TEXT = "You were eaten by a tiger!\nPress any key to exit."
 
 
     ##########
@@ -78,11 +78,11 @@ class Preferences:
                             'images')
 
     # Image to display as the player
-    PLAYER_IMAGE = os.path.join(IMG_DIR, "penguin.png")
+    PLAYER_IMAGE = os.path.join(IMG_DIR, "person.png")
     # Image to display as food
-    FOOD_IMAGE = os.path.join(IMG_DIR, "fish.png")
+    FOOD_IMAGE = os.path.join(IMG_DIR, "chicken.png")
     # Image to display as an enemy
-    ENEMY_IMAGE = os.path.join(IMG_DIR, 'seal.png')
+    ENEMY_IMAGE = os.path.join(IMG_DIR, 'tiger.png')
 
 
     #######################

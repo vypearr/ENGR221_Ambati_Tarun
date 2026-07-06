@@ -1,7 +1,7 @@
 """
 Author: Tarun Ambati
 Last updated: June 29th, 2026
-Description: Stores and updates the data for Antarctic Survival, including
+Description: Stores and updates the data for the game, including
 the board, player movement, food, enemies, scoring, and game-over behavior.
 """
 
