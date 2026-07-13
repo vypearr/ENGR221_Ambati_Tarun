@@ -1,0 +1,24 @@
+Part 1
+
+a. The players location on the board is represented by a horse which is defaulted to cell 0,0 at the start of the game (top left of the board)
+b. Methods that are given to help access different parts of the players 'body' are, get_player(), get_tail(), init_player()
+c. The different movement modes of the player are,  going_west(), going_east(), going_south(), going_north(), and ai_mode(). The first 4 modes
+are for player movement direction wise. AI mode is when the program by itself chooses the next cell automatically using a searching algo
+d. get_next_cell() returns the next cell to move based on the current direction. get_next_cell_ai() should use BFS or DFS to find a path to food automatically
+
+
+Part 2
+
+a. end (FILO)
+b. end. The first item in should be removed last. Stacks follow the first in last out method.
+c. end (FIFO)
+d. beginning. the first item in should be removed first. Queues follow the first in first out method.
+
+
+Part 3
+a. When i ran AI mode with DFS it searched for ducks horizontally going row by row after getting the first duck. and then it got stuck in a loop of
+2 rows and never got out. This happens because DFS uses a stack, so it follows one path as far as possible before checking other paths. 
+DFS does not search evenly outward from the player. Because of this, it can choose a path that is not the shortest or smartest path to the duck.
+In the game, this can make the player move in a repetitive pattern or get stuck because DFS keeps prioritizing the most recently added cells instead of checking all nearby options first
+b. BFS will find a shorter path to the food. BFS uses a queue, so it checks cells layer by layer based on distance from the player. 
+That means the first food it finds is reached using the fewest number of moves. 

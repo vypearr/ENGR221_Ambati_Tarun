@@ -1,0 +1,43 @@
+move_player_to_cell()
+
+if cell is None or cell is part of body:
+then
+game over
+
+if next cell is food:
+then 
+remove food from that cell and player should move forward to create duck line, score increase by 1
+
+if next cell is Empty:
+remove the current cell from body list and move player forward
+and
+change the removed tail cell to Empty
+
+
+
+
+get_first_cell_ai() - main idea is from where i am right now, what nearby cells can i travel to until i reach a duck
+
+set current to the food cell which was found by the search
+
+while there are still cells to search
+remove one cell from the queue/stack
+and 
+check if its food
+if yes, find out the first step toward it
+if no, look at its neighboring cells(north,east,south,west) and see if it has been searched yet
+if the neighboring cells are not apart of the players body, then mark its search parent as the current cell and add it to the queue/stack
+
+
+
+
+get_first_cell_in_path() - main idea is start at the duck which was found and follow the path backwards, until you reach the cell that is directly after the player
+
+set current to the food cell that was found by the search
+
+while current has a search parent and the currents parent is not the player 
+then
+move backwards to its search parent
+
+
+
