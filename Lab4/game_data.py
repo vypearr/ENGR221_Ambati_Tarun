@@ -5,6 +5,14 @@ Description: Stores the Duck Collector game state and logic, including board
 setup, player movement, food collection, and AI movement using BFS or DFS.
 """
 
+"BFS -> Breath First Search; "
+"Uses a Queue to search the board for food, it searches all the neighbors of a cell before moving to the next level of neighbors. "
+"This results in finding the shortest path to food."
+
+"DFS -> Depth First Search; "
+"Uses a Stack to search the board for food, it searches as far as possible along each branch before backtracking. "
+"This may not find the shortest path but can be more memory efficient."
+
 import random
 from enum import Enum, auto
 
@@ -240,6 +248,10 @@ class GameData:
         tail in place. If the next cell is empty, the player advances normally
         and the tail is removed.
         """
+
+        "a. If the next cell is a part of the body or off the map, the game is over (already written)"
+        "b. If the next cell is food, the player should move forward (and the “tail” stays in the same spot to add a duck to the line)"
+        "c. If the next cell is empty, the player should move forward (i.e., the next cell will be the new player head, and the “tail” is no longer part of the line)"
         
         # If the next cell is off the board or part of the body, game over.
         if not cell or cell.is_body():            
@@ -355,6 +367,9 @@ class GameData:
         parent is the current player head. The cell at that point is the first
         step in the path from the player to the food.
         """
+
+        "Helper method for AI movement. "
+        "The AI search leaves breadcrumbs from Player to Duck. get_first_cell_in_path follows the breadcrumbs backward until it finds the first step away from the Player."
         current = cell
 
         # Follow the parent links backward until the player is one step away.

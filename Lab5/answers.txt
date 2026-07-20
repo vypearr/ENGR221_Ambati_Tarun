@@ -1,0 +1,20 @@
+Part 1 
+
+a. Both functions draw a full snowflake by drawing three Koch curve sides. After each side is drawn, the turtle turns left 120 degrees so the three sides form the triangle. The recursive version calls draw_curve_recursive(), while the stack version calls draw_curve_stack().
+
+b. Each initial call draws one side of the snowflake. The full snowflake needs three initial curve calls because the base shape is an equilateral triangle.
+
+c. get_time_and_mem() records the time before the method starts using time.perf_counter(), runs the method while tracking memory usage, then records the time again after the method finishes. The total runtime is the ending time minus the starting time.
+
+
+
+Part 4
+
+a. Recursive memory usage: 42.73046875 MB
+Non-recursive memory usage: 30.8125 MB
+Recursive time taken: 4.96858 s
+Non-recursive time taken: 4.81862 s
+
+b. These results make sense because both methods draw the same Koch snowflake, so their time taken is close. The recursive method took 4.96858 seconds, while the non-recursive stack method took 4.81862 seconds, so the stack method was slightly faster in this run. Since both methods still have to draw the same number of turtle line segments, the runtime difference is not huge.
+The bigger difference is in memory usage. The recursive method used 42.73046875 MB, while the non-recursive method used 30.8125 MB. This makes sense because recursion adds many function calls onto Python’s call stack. Each recursive call stores information like the current length, depth, and where the program should continue after that call finishes. The non-recursive method uses a list as a stack to store commands instead, which avoids creating all those nested function calls. Because of that, the non-recursive stack method used less memory.
+

@@ -1,0 +1,57 @@
+draw_curve_recursive_helper() - draws one side of the Koch snowflake using recursion
+
+draw_curve_recursive_helper(length, depth):
+    if depth is less than 0:
+        raise an error
+
+    if depth equals 0:
+        move the turtle forward by length
+
+    else:
+        set smaller_length to length divided by 3
+        set smaller_depth to depth minus 1
+
+        draw a smaller curve with smaller_length and smaller_depth
+        turn left 60 degrees
+        draw a smaller curve with smaller_length and smaller_depth
+        turn right 120 degrees
+        draw a smaller curve with smaller_length and smaller_depth
+        turn left 60 degrees
+        draw a smaller curve with smaller_length and smaller_depth
+
+draw_curve_stack() - draws one side of the Koch snowflake using a stack (list) - Stack is Last In, First Out so the angle commands should be in reversed order compared to the recursion function
+
+draw_curve_stack():
+    create a stack with one command: add_curve using the starting length and depth
+
+    while the stack is not empty:
+        remove the top command from the stack
+
+        if the command is add_curve:
+            get the length and depth from the command
+
+            if depth is less than 0:
+                raise an error
+
+            if depth equals 0:
+                move the turtle forward by length
+
+            otherwise:
+                set smaller_length to length divided by 3
+                set smaller_depth to depth minus 1
+
+                because a stack is last-in, first-out, add the commands in reverse order:
+                    add smaller curve command
+                    add left turn command
+                    add smaller curve command
+                    add right turn command
+                    add smaller curve command
+                    add left turn command
+                    add smaller curve command
+
+        if the command is turn:
+            get the angle from the command
+            if the angle is positive:
+                turn the turtle left by that angle
+            otherwise:
+                turn the turtle right by the positive version of that angle

@@ -110,4 +110,4 @@ class Controller:
 
 
 if __name__ == "__main__":
-    Controller("dfs").run()
+    Controller().run()
