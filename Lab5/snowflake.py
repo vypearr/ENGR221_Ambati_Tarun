@@ -40,7 +40,19 @@ class KochSnowflake:
         self.draw_curve_recursive_helper(self.init_length, self.init_depth)
 
     def draw_curve_recursive_helper(self, length, depth):
-        """Draw one side of the Koch snowflake recursively."""
+        """Draw one side of the Koch snowflake recursively.
+        If the depth is 0, the turtle draws one straight line segment.
+        Otherwise, the current line segment is divided into three equal
+        parts and replaced with four smaller Koch curve segments. The turn
+        pattern creates the triangle-shaped bump in the middle of the line.
+        Each recursive call uses depth - 1 so the method eventually reaches
+        the base case and stops breaking the line into smaller pieces.
+
+        Arguments:
+        length: The length of the current line segment being drawn.
+        depth: The number of recursive levels still left to draw.
+
+        """
 
         # Raise an error if depth is negative
         if depth < 0:
@@ -66,7 +78,18 @@ class KochSnowflake:
             self.draw_curve_recursive_helper(new_length, depth - 1)
 
     def draw_curve_stack(self):
-        """Draw one side of the Koch snowflake using a stack instead of recursion."""
+        """Draw one side of the Koch snowflake using a stack and list instead of recursion.
+        This method uses a list of commands to manually keep track of the
+        drawing steps that recursion would normally store on Python's call
+        stack. The stack starts with one add_curve command for the full side
+        of the snowflake. While commands remain, the method pops the most
+        recent command and either draws a line, turns the turtle, or breaks
+        a curve into smaller commands.
+
+        Since stacks are last-in, first-out, the smaller drawing commands are
+        added in reverse order so that they execute in the correct Koch curve
+        pattern.
+        """
 
         commands = [("add_curve", self.init_length, self.init_depth)]
 
@@ -171,7 +194,7 @@ class KochSnowflake:
 
 
 if __name__ == "__main__":
-    s = KochSnowflake(300, 3)
+    s = KochSnowflake(300, 2)
     # s.draw_snowflake_recursive()
     s.compare_snowflake()
     # s.draw_snowflake_stack()

@@ -1,0 +1,39 @@
+Part 2
+
+a. The values of NodeType are SCHOOL, PROGAM, and FACULTY. SCHOOL represents the root of the tree, which is the School of Engineering. PROGAM represents each engineering program, such as Electrical, Computer, Civil, or Mechanical. FACULTY represents an individual professor node in the tree.
+
+b. A node can know it is a leaf by checking whether it has any children. If its children list is empty, then the node is a leaf. In the code, this can be checked with len(self.children) == 0.
+
+c. The height of a node refers to the number of edges on the longest path from that node down to a leaf. A leaf node has height 0 because there are no nodes below it.
+
+d. The depth of a node refers to the number of edges from the root node to that node. The root node has depth 0. A program node under the root has depth 1, and a faculty node under a program has depth 2.
+
+e. You can traverse through the tree by starting at the root and checking whether the current node has the name you are looking for. If it does not, recursively search each child node. This is a depth-first search because it goes down one branch of the tree before moving to the next branch. If a matching node is found, return it. If no match exists, return None.
+
+
+
+Part 3
+
+a. faculty_dict is a Python dictionary could also call it hash map. The keys are faculty last names, and the values are Professor objects. To access a particular professor, you can use the last name as the key. For example, faculty_dict["Kubota"] returns the Professor object for Professor Kubota.
+
+b. program_structure is a TreeNode. It is the root of the tree representing the School of Engineering. From this root node, the program nodes and faculty nodes can be accessed through the children lists.
+
+c. df stores the data from the faculty_list.xlsx spreadsheet. Each row contains information for one professor, including first name, last name, program, rank, and office. The lambda function is applied to each row. For each row, it calls add_prof(x, faculty_dict), which creates a Professor object and adds it to the faculty dictionary.
+
+
+
+Part 4
+
+a. self.faculty is a Python dictionary. It stores professor information using last names as keys and Professor objects as values. This makes it work like a hash map, so the program can quickly look up a professor by last name.
+
+b. self.root is a TreeNode. We can access the rest of the tree because each TreeNode stores a list of its children. Starting from the root, the program can follow the children lists to reach the program nodes and then the faculty nodes.
+
+c. The draw_tree() method draws the tree in pre-order depth-first order. It draws the current node first, then draws each child subtree recursively. This means it draws the root, then goes down through the children of each branch.
+
+d. In run(), user_text starts as an empty string. Each time the user types a normal key, event.unicode is added to user_text. If Backspace is pressed, the last character is removed from user_text. When Return is pressed, draw_screen(input_rect) redraws the screen, then user_text.strip().capitalize() is passed into show_info(). The show_info() method uses that last name to look up the Professor object in the faculty dictionary and display the professor information. After that, user_text is reset to an empty string.
+
+
+
+tree_node.py defines how tree nodes work. 
+engr_faculty.py builds the actual faculty tree and hash map/dictionary. 
+faculty_visualizer.py draws the tree and uses the hash map/dictionary to quickly show professor information when the user searches a name.
