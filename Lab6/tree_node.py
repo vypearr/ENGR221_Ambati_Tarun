@@ -6,6 +6,9 @@ Engineering faculty roster tree. Each node stores a name, node type,
 optional data, parent reference, and list of child nodes.
 """
 
+"""
+We really only use 2 out of 6 methods, add_child() & find(). The rest are not used in the program, but they are useful for different use cases.
+"""
 from enum import Enum
 
 
@@ -14,7 +17,7 @@ class TreeNode:
         self.name = name
         self.node_type = node_type
         self.data = data
-        self.parent = None
+        self.parent = None  
         self.children = []
 
 

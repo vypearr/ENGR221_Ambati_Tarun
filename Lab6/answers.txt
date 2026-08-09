@@ -31,9 +31,3 @@ b. self.root is a TreeNode. We can access the rest of the tree because each Tree
 c. The draw_tree() method draws the tree in pre-order depth-first order. It draws the current node first, then draws each child subtree recursively. This means it draws the root, then goes down through the children of each branch.
 
 d. In run(), user_text starts as an empty string. Each time the user types a normal key, event.unicode is added to user_text. If Backspace is pressed, the last character is removed from user_text. When Return is pressed, draw_screen(input_rect) redraws the screen, then user_text.strip().capitalize() is passed into show_info(). The show_info() method uses that last name to look up the Professor object in the faculty dictionary and display the professor information. After that, user_text is reset to an empty string.
-
-
-
-tree_node.py defines how tree nodes work. 
-engr_faculty.py builds the actual faculty tree and hash map/dictionary. 
-faculty_visualizer.py draws the tree and uses the hash map/dictionary to quickly show professor information when the user searches a name.
